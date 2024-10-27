@@ -1,5 +1,4 @@
-// app/signup/page.js
-"use client"; // Ensure this component runs on the client side
+"use client";
 
 import { useState } from "react";
 
@@ -17,9 +16,9 @@ const Signup = () => {
     });
   };
 
-  const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Add your signup logic here, e.g., API call to register user
+    // Add signup logic here
     console.log(formData);
   };
 
@@ -79,6 +78,12 @@ const Signup = () => {
           >
             Sign Up
           </button>
+          <p className="mt-4">
+            Already have an account?{" "}
+            <a href="/signin" className="text-blue-500 hover:underline">
+              Sign In
+            </a>
+          </p>
         </form>
       </div>
     </div>

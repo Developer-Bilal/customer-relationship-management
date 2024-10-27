@@ -28,16 +28,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isAuthenticated = true;
   return (
     <html lang="en">
-      <body className="flex">
-        <Sidebar />
-        <div className="flex-1">
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
-      </body>
+      {!isAuthenticated ? (
+        <body>{children}</body>
+      ) : (
+        <body className="flex">
+          <Sidebar />
+          <div className="flex-1">
+            <Navbar />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </div>
+        </body>
+      )}
     </html>
   );
 }
