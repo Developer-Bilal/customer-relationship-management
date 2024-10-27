@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-const Users = () => {
+const Projects = () => {
   return (
     <div className="m-4">
       <div className="my-2 flex items-center justify-end">
-        <Link href="/users/new">
+        <Link href="/projects/new">
           <button className="bg-green-500 text-white py-1 px-3 rounded hover:bg-green-600">
-            Add User
+            Add Project
           </button>
         </Link>
       </div>
@@ -37,4 +37,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Projects;

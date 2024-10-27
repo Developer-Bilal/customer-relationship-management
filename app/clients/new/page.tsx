@@ -5,7 +5,7 @@ const NewUser = () => {
         // onSubmit={handleSubmit}
         className="max-w-md mx-auto p-4 bg-white rounded shadow"
       >
-        <h2 className="text-lg font-semibold mb-4">New User</h2>
+        <h2 className="text-lg font-semibold mb-4">New Client</h2>
         <div className="mb-4">
           <label
             className="block text-sm font-medium text-gray-700"
@@ -52,40 +52,6 @@ const NewUser = () => {
             name="profession"
             id="profession"
             // value={formData.profession}
-            // onChange={handleChange}
-            required
-            className="mt-1 block w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-sm font-medium text-gray-700"
-            htmlFor="password"
-          >
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            // value={formData.password}
-            // onChange={handleChange}
-            required
-            className="mt-1 block w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-sm font-medium text-gray-700"
-            htmlFor="confirmPassword"
-          >
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-            // value={formData.confirmPassword}
             // onChange={handleChange}
             required
             className="mt-1 block w-full p-2 border border-gray-300 rounded"

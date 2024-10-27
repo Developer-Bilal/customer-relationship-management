@@ -1,29 +1,33 @@
+import Link from "next/link";
+
 const Sidebar = () => {
   return (
     <div className="flex flex-col w-60 max-h-full bg-gray-800 text-white">
-      <div className="p-4 text-lg font-semibold">Dashboard</div>
+      <div className="p-4 text-lg font-semibold">
+        <Link href="/">Dashboard</Link>
+      </div>
       <nav className="flex-1">
         <ul>
           <li className="p-4 hover:bg-gray-700">
-            <a href="#">Users</a>
+            <Link href="/users">Users</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <a href="#">Projects</a>
+            <Link href="/projects">Projects</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <a href="#">Clients</a>
+            <Link href="/clients">Clients</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <a href="#">Developers</a>
+            <Link href="/developers">Developers</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <a href="#">Profile</a>
+            <Link href="/users">Profile</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <a href="#">Settings</a>
+            <Link href="/users">Settings</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <a href="#">Logout</a>
+            <Link href="/users">Logout</Link>
           </li>
         </ul>
       </nav>
