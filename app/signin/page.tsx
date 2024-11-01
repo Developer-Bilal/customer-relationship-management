@@ -3,22 +3,22 @@
 import { useState } from "react";
 
 const Signin = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   email: "",
+  //   password: "",
+  // });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Add sign-in logic here
-    console.log(formData);
+    // e.preventDefault();
+    // // Add sign-in logic here
+    // console.log(formData);
   };
 
   return (
@@ -33,8 +33,8 @@ const Signin = () => {
             <input
               type="email"
               name="email"
-              value={formData.email}
-              onChange={handleChange}
+              // value={formData.email}
+              // onChange={handleChange}
               required
               className="w-full p-2 border border-gray-300 rounded"
             />
@@ -49,8 +49,8 @@ const Signin = () => {
             <input
               type="password"
               name="password"
-              value={formData.password}
-              onChange={handleChange}
+              // value={formData.password}
+              // onChange={handleChange}
               required
               className="w-full p-2 border border-gray-300 rounded"
             />
