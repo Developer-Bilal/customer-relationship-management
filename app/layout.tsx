@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Sidebar from "./components/Sidebar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,18 +28,7 @@ export default function RootLayout({
   const isAuthenticated = true;
   return (
     <html lang="en">
-      {!isAuthenticated ? (
-        <body>{children}</body>
-      ) : (
-        <body className="flex">
-          <Sidebar />
-          <div className="flex-1">
-            <Navbar />
-            <main className="min-h-screen">{children}</main>
-            <Footer />
-          </div>
-        </body>
-      )}
+      <body>{children}</body>
     </html>
   );
 }

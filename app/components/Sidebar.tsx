@@ -4,30 +4,30 @@ const Sidebar = () => {
   return (
     <div className="flex flex-col w-60 max-h-full bg-gray-800 text-white">
       <div className="p-4 text-lg font-semibold">
-        <Link href="/">Dashboard</Link>
+        <Link href="/dashboard">Dashboard</Link>
       </div>
       <nav className="flex-1">
         <ul>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/users">Users</Link>
+            <Link href="/dashboard/users">Users</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/projects">Projects</Link>
+            <Link href="/dashboard/projects">Projects</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/clients">Clients</Link>
+            <Link href="/dashboard/clients">Clients</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/developers">Developers</Link>
+            <Link href="/dashboard/developers">Developers</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/users">Profile</Link>
+            <Link href="/dashboard/users">Profile</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/users">Settings</Link>
+            <Link href="/dashboard/users">Settings</Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/users">Logout</Link>
+            <Link href="/dashboard/users">Logout</Link>
           </li>
         </ul>
       </nav>
