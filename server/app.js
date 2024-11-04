@@ -4,12 +4,14 @@ import UserRouter from "./routes/UserRoute.js";
 import ClientRouter from "./routes/ClientRoute.js";
 import DeveloperRouter from "./routes/DeveloperRoute.js";
 import ProjectRouter from "./routes/ProjectRoute.js";
+import cors from "cors";
 import { config } from "dotenv";
 config();
 
 const app = express();
 const port = process.env.PORT || 5555;
 
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1/users", UserRouter);

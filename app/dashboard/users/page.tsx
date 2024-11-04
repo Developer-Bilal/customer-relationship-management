@@ -1,6 +1,9 @@
 import Link from "next/link";
+// import { getUsers } from "../getData";
 
-const Users = () => {
+const Users = async () => {
+  // const data = await getUsers();
+  // console.log(data);
   return (
     <div className="m-4">
       <div className="my-2 flex items-center justify-end">

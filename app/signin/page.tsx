@@ -1,31 +1,11 @@
-"use client";
-
-import { useState } from "react";
+import Link from "next/link";
 
 const Signin = () => {
-  // const [formData, setFormData] = useState({
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    // e.preventDefault();
-    // // Add sign-in logic here
-    // console.log(formData);
-  };
-
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-96">
         <h2 className="text-2xl font-bold mb-6">Sign In</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={() => console.log("submitted")}>
           <div className="mb-4">
             <label className="block text-sm font-semibold mb-2" htmlFor="email">
               Email
@@ -63,9 +43,9 @@ const Signin = () => {
           </button>
           <p className="mt-4">
             Don't have an account?{" "}
-            <a href="/signup" className="text-blue-500 hover:underline">
+            <Link href="/signup" className="text-blue-500 hover:underline">
               Sign Up
-            </a>
+            </Link>
           </p>
         </form>
       </div>

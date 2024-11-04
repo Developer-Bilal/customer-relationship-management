@@ -9,25 +9,39 @@ const Sidebar = () => {
       <nav className="flex-1">
         <ul>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/dashboard/users">Users</Link>
+            <Link href="/dashboard/users">
+              <div>Users</div>
+            </Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/dashboard/projects">Projects</Link>
+            <Link href="/dashboard/projects">
+              <div>Projects</div>
+            </Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/dashboard/clients">Clients</Link>
+            <Link href="/dashboard/clients">
+              <div>Clients</div>
+            </Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/dashboard/developers">Developers</Link>
+            <Link href="/dashboard/developers">
+              <div>Developers</div>
+            </Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/dashboard/users">Profile</Link>
+            <Link href="/dashboard/users">
+              <div>Profile</div>
+            </Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/dashboard/users">Settings</Link>
+            <Link href="/dashboard/users">
+              <div>Settings</div>
+            </Link>
           </li>
           <li className="p-4 hover:bg-gray-700">
-            <Link href="/dashboard/users">Logout</Link>
+            <Link href="/dashboard/users">
+              <div>Logout</div>
+            </Link>
           </li>
         </ul>
       </nav>

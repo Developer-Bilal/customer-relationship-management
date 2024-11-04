@@ -1,11 +1,11 @@
 // import { redirect } from "next/navigation";
 
-export default function Dashboard() {
-  // const isAuthenticated = false;
+// import { getUsers } from "./getData.js";
 
-  // if (!isAuthenticated) {
-  //   redirect("/signin");
-  // }
+export default async function Dashboard() {
+  // const data = await getUsers();
+  // console.log(data);
+
   return (
     <div className="m-4">
       <div className="my-4 p-4 flex items-center justify-around ">
@@ -14,7 +14,7 @@ export default function Dashboard() {
           <div>Clients</div>
         </div>
         <div className="bg-green-300 px-10 py-6 rounded">
-          <div>+10</div>
+          <div>10</div>
           <div>Users</div>
         </div>
         <div className="bg-green-300 px-10 py-6 rounded">
