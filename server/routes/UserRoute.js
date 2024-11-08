@@ -4,19 +4,27 @@ import {
   deleteUser,
   getUser,
   getUsers,
+  signInUser,
+  signUpUser,
   updateUser,
 } from "../controllers/UserController.js";
 
+import { auth } from "../middlewares/auth.js";
+
 const UserRouter = Router();
 
-UserRouter.get("/", getUsers);
+UserRouter.get("/", auth, getUsers);
 
-UserRouter.get("/:id", getUser);
+UserRouter.get("/:id", auth, getUser);
 
-UserRouter.post("/create", createUser);
+UserRouter.post("/create", auth, createUser);
 
-UserRouter.put("/update/:id", updateUser);
+UserRouter.post("/signup", signUpUser);
 
-UserRouter.delete("/delete/:id", deleteUser);
+UserRouter.post("/signin", signInUser);
+
+UserRouter.put("/update/:id", auth, updateUser);
+
+UserRouter.delete("/delete/:id", auth, deleteUser);
 
 export default UserRouter;

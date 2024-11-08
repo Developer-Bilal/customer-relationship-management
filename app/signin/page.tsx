@@ -41,7 +41,7 @@ const Signin = () => {
           >
             Sign In
           </button>
-          <p className="mt-4">Don't have an account?</p>
+          <p className="mt-4">Dont have an account?</p>
           <Link href="/signup" className="text-blue-500 hover:underline">
             Sign Up
           </Link>
