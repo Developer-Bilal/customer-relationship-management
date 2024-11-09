@@ -1,10 +1,10 @@
 // import { redirect } from "next/navigation";
 
-// import { getUsers } from "./getData.js";
+import { getUsers } from "./getData.js";
 
 export default async function Dashboard() {
-  // const data = await getUsers();
-  // console.log(data);
+  const data = await getUsers();
+  console.log(data);
 
   return (
     <div className="m-4">

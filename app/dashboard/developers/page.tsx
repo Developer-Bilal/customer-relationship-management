@@ -1,6 +1,16 @@
 import Link from "next/link";
+import { getDevelopers } from "../getData";
 
-const Developes = () => {
+interface Developer {
+  id: string;
+  name: string;
+  email: string;
+}
+
+const Developers = async () => {
+  const developers = await getDevelopers();
+  console.log(developers);
+
   return (
     <div className="m-4">
       <div className="my-2 flex items-center justify-end">
@@ -19,22 +29,27 @@ const Developes = () => {
           </tr>
         </thead>
         <tbody className="text-gray-600 text-sm font-light">
-          <tr className="border-b border-gray-200 hover:bg-gray-100">
-            <td className="py-3 px-6">name</td>
-            <td className="py-3 px-6">email</td>
-            <td className="py-3 px-6">
-              <button className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-700 mr-2">
-                Edit
-              </button>
-              <button className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-700">
-                Delete
-              </button>
-            </td>
-          </tr>
+          {developers.data.map((developer: Developer) => (
+            <tr
+              key={developer.id}
+              className="border-b border-gray-200 hover:bg-gray-100"
+            >
+              <td className="py-3 px-6">{developer.name}</td>
+              <td className="py-3 px-6">{developer.email}</td>
+              <td className="py-3 px-6">
+                <button className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-700 mr-2">
+                  Edit
+                </button>
+                <button className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-700">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
   );
 };
 
-export default Developes;
+export default Developers;
