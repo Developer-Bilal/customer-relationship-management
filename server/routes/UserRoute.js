@@ -13,18 +13,18 @@ import { auth } from "../middlewares/auth.js";
 
 const UserRouter = Router();
 
-UserRouter.get("/", auth, getUsers);
+UserRouter.get("/", getUsers);
 
-UserRouter.get("/:id", auth, getUser);
+UserRouter.get("/:id", getUser);
 
-UserRouter.post("/create", auth, createUser);
+UserRouter.post("/create", createUser);
 
 UserRouter.post("/signup", signUpUser);
 
 UserRouter.post("/signin", signInUser);
 
-UserRouter.put("/update/:id", auth, updateUser);
+UserRouter.put("/update/:id", updateUser);
 
-UserRouter.delete("/delete/:id", auth, deleteUser);
+UserRouter.delete("/delete/:id", deleteUser);
 
 export default UserRouter;

@@ -13,7 +13,20 @@ export const getDevelopers = async (req, res) => {
 
 // CREATE developer
 export const createDeveloper = async (req, res) => {
-  const { name, email } = req.body;
+  const {
+    name,
+    email,
+    role,
+    phone,
+    country,
+    source,
+    portfolioURL,
+    linkedin,
+    resumeFile,
+    profilePhoto,
+    date,
+    additionalInfo,
+  } = req.body;
   try {
     if (!name || !email) {
       return res
@@ -21,7 +34,20 @@ export const createDeveloper = async (req, res) => {
         .json({ message: "Please fill all fields properly" });
     }
 
-    const developers = await Developers.create({ name, email });
+    const developers = await Developers.create({
+      name,
+      email,
+      role,
+      phone,
+      country,
+      source,
+      portfolioURL,
+      linkedin,
+      resumeFile,
+      profilePhoto,
+      date,
+      additionalInfo,
+    });
     return res.status(200).json({ message: "created sucessfully" });
   } catch (error) {
     console.log(error.message);
@@ -43,7 +69,20 @@ export const getDeveloper = async (req, res) => {
 
 // UPDATE developer
 export const updateDeveloper = async (req, res) => {
-  const { name, email } = req.body;
+  const {
+    name,
+    email,
+    role,
+    phone,
+    country,
+    source,
+    portfolioURL,
+    linkedin,
+    resumeFile,
+    profilePhoto,
+    date,
+    additionalInfo,
+  } = req.body;
   const { id } = req.params;
   try {
     if (!name || !email) {
@@ -52,7 +91,20 @@ export const updateDeveloper = async (req, res) => {
         .json({ message: "Please fill all fields properly" });
     }
 
-    const developers = await Developers.findByIdAndUpdate(id, { name, email });
+    const developers = await Developers.findByIdAndUpdate(id, {
+      name,
+      email,
+      role,
+      phone,
+      country,
+      source,
+      portfolioURL,
+      linkedin,
+      resumeFile,
+      profilePhoto,
+      date,
+      additionalInfo,
+    });
     return res.status(200).json({ message: "Success!" });
   } catch (error) {
     console.log(error.message);

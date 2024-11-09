@@ -13,7 +13,18 @@ export const getClients = async (req, res) => {
 
 // CREATE client
 export const createClient = async (req, res) => {
-  const { name, email } = req.body;
+  const {
+    name,
+    email,
+    profilePhoto,
+    phone,
+    country,
+    source,
+    websiteURL,
+    linkedin,
+    date,
+    additionalInfo,
+  } = req.body;
   try {
     if (!name || !email) {
       return res
@@ -21,7 +32,18 @@ export const createClient = async (req, res) => {
         .json({ message: "Please fill all fields properly" });
     }
 
-    const clients = await Clients.create({ name, email });
+    const client = await Clients.create({
+      name,
+      email,
+      profilePhoto,
+      phone,
+      country,
+      source,
+      websiteURL,
+      linkedin,
+      date,
+      additionalInfo,
+    });
     return res.status(200).json({ message: "created sucessfully" });
   } catch (error) {
     console.log(error.message);
@@ -43,7 +65,18 @@ export const getClient = async (req, res) => {
 
 // UPDATE client
 export const updateClient = async (req, res) => {
-  const { name, email } = req.body;
+  const {
+    name,
+    email,
+    profilePhoto,
+    phone,
+    country,
+    source,
+    websiteURL,
+    linkedin,
+    date,
+    additionalInfo,
+  } = req.body;
   const { id } = req.params;
   try {
     if (!name || !email) {
@@ -52,7 +85,18 @@ export const updateClient = async (req, res) => {
         .json({ message: "Please fill all fields properly" });
     }
 
-    const client = await Clients.findByIdAndUpdate(id, { name, email });
+    const client = await Clients.findByIdAndUpdate(id, {
+      name,
+      email,
+      profilePhoto,
+      phone,
+      country,
+      source,
+      websiteURL,
+      linkedin,
+      date,
+      additionalInfo,
+    });
     return res.status(200).json({ message: "Success!" });
   } catch (error) {
     console.log(error.message);
@@ -64,7 +108,7 @@ export const updateClient = async (req, res) => {
 export const deleteClient = async (req, res) => {
   const { id } = req.params;
   try {
-    const clients = await Clients.findByIdAndDelete(id);
+    const client = await Clients.findByIdAndDelete(id);
     return res.status(200).json({ message: "Success!" });
   } catch (error) {
     console.log(error.message);

@@ -13,15 +13,51 @@ export const getProjects = async (req, res) => {
 
 // CREATE Project
 export const createProject = async (req, res) => {
-  const { name, email } = req.body;
+  const {
+    title,
+    description,
+    client,
+    developer,
+    manager,
+    startDate,
+    deadline,
+    status,
+    priorityLevel,
+    budget,
+    billing,
+    requirements,
+    milestones,
+    progressTracker,
+    notes,
+    relatedDocuments,
+    communicationHistory,
+  } = req.body;
   try {
-    if (!name || !email) {
+    if (!title) {
       return res
         .status(400)
         .json({ message: "Please fill all fields properly" });
     }
 
-    const project = await Projects.create({ name, email });
+    const project = await Projects.create({
+      title,
+      description,
+      client,
+      developer,
+      manager,
+      startDate,
+      deadline,
+      status,
+      priorityLevel,
+      budget,
+      billing,
+      requirements,
+      milestones,
+      progressTracker,
+      notes,
+      relatedDocuments,
+      communicationHistory,
+    });
     return res.status(200).json({ message: "created sucessfully" });
   } catch (error) {
     console.log(error.message);
@@ -43,16 +79,52 @@ export const getProject = async (req, res) => {
 
 // UPDATE Project
 export const updateProject = async (req, res) => {
-  const { name, email } = req.body;
+  const {
+    title,
+    description,
+    client,
+    developer,
+    manager,
+    startDate,
+    deadline,
+    status,
+    priorityLevel,
+    budget,
+    billing,
+    requirements,
+    milestones,
+    progressTracker,
+    notes,
+    relatedDocuments,
+    communicationHistory,
+  } = req.body;
   const { id } = req.params;
   try {
-    if (!name || !email) {
+    if (!title) {
       return res
         .status(400)
         .json({ message: "Please fill all fields properly" });
     }
 
-    const project = await Projects.findByIdAndUpdate(id, { name, email });
+    const project = await Projects.findByIdAndUpdate(id, {
+      title,
+      description,
+      client,
+      developer,
+      manager,
+      startDate,
+      deadline,
+      status,
+      priorityLevel,
+      budget,
+      billing,
+      requirements,
+      milestones,
+      progressTracker,
+      notes,
+      relatedDocuments,
+      communicationHistory,
+    });
     return res.status(200).json({ message: "Success!" });
   } catch (error) {
     console.log(error.message);
