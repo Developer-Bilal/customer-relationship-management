@@ -15,9 +15,9 @@ export const getUsers = async (req, res) => {
 
 // CREATE user
 export const createUser = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, admin, email, password } = req.body;
   try {
-    if (!name || !email || !password) {
+    if (!name || !admin || !email || !password) {
       return res
         .status(400)
         .json({ message: "Please fill all fields properly" });
@@ -26,7 +26,12 @@ export const createUser = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPass = await bcrypt.hash(password, salt);
 
-    const user = await Users.create({ name, email, password: hashedPass });
+    const user = await Users.create({
+      name,
+      admin,
+      email,
+      password: hashedPass,
+    });
     return res.status(200).json({ message: "created sucessfully" });
   } catch (error) {
     console.log(error.message);
@@ -48,16 +53,16 @@ export const getUser = async (req, res) => {
 
 // UPDATE user
 export const updateUser = async (req, res) => {
-  const { name, email } = req.body;
+  const { name, admin, email } = req.body;
   const { id } = req.params;
   try {
-    if (!name || !email) {
+    if (!name || !admin || !email) {
       return res
         .status(400)
         .json({ message: "Please fill all fields properly" });
     }
 
-    const user = await Users.findByIdAndUpdate(id, { name, email });
+    const user = await Users.findByIdAndUpdate(id, { name, admin, email });
     return res.status(200).json({ message: "Success!" });
   } catch (error) {
     console.log(error.message);
@@ -86,6 +91,7 @@ export const signUpUser = async (req, res) => {
   console.log("signUpUser");
 
   const { name, email, password } = req.body;
+  const admin = false;
   try {
     if (!name || !email || !password) {
       return res
@@ -97,7 +103,7 @@ export const signUpUser = async (req, res) => {
     const salt = bcrypt.genSalt(10);
     const hashedpass = bcrypt.hash(password, salt);
     // create user
-    const user = await Users.create({ name, email, hashedpass });
+    const user = await Users.create({ name, admin, email, hashedpass });
 
     const { id } = user._id;
     // sign in user

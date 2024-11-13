@@ -1,29 +1,42 @@
 "use client";
 
 import axios from "axios";
-import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import React, { FormEvent, useEffect, useState } from "react";
 
-const NewUser = () => {
+const EditUser = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [admin, setAdmin] = useState("false");
+  const [admin, setAdmin] = useState("");
   const router = useRouter();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("submitted");
+  const { id } = useParams();
 
-    const data = { name, admin, email, password };
-
+  useEffect(() => {
     axios
-      .post("http://localhost:5000/api/v1/users/create", data)
-      .then(() => {
-        console.log("submitted");
-        router.push("/dashboard/users");
+      .get(`http://localhost:5000/api/v1/users/${id}`)
+      .then((res) => {
+        setName(res.data.data.name);
+        setEmail(res.data.data.email);
+        setAdmin(res.data.data.admin);
       })
       .catch((err) => console.log(err));
+  }, []);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    const data = { name, admin, email };
+
+    axios
+      .put(`http://localhost:5000/api/v1/users/update/${id}`, data)
+      .then((res) => {
+        console.log(res);
+        router.push("/dashboard/users");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -32,7 +45,7 @@ const NewUser = () => {
         onSubmit={handleSubmit}
         className="max-w-md mx-auto p-4 bg-white rounded shadow"
       >
-        <h2 className="text-lg font-semibold mb-4">New User</h2>
+        <h2 className="text-lg font-semibold mb-4">Edit User</h2>
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">
             Name
@@ -50,7 +63,7 @@ const NewUser = () => {
           </label>
           <select
             className="mt-1 block w-full p-2 border border-gray-300 rounded"
-            value={admin ? "true" : "false"}
+            value={admin}
             onChange={(e) => setAdmin(e.target.value)}
             required
           >
@@ -70,21 +83,6 @@ const NewUser = () => {
             className="mt-1 block w-full p-2 border border-gray-300 rounded"
           />
         </div>
-        <div className="mb-4">
-          <label
-            className="block text-sm font-medium text-gray-700"
-            htmlFor="password"
-          >
-            Password
-          </label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="mt-1 block w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
         <button
           type="submit"
           className="w-full py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700"
@@ -96,4 +94,4 @@ const NewUser = () => {
   );
 };
 
-export default NewUser;
+export default EditUser;

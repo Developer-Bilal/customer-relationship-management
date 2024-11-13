@@ -1,38 +1,25 @@
 "use client";
 
-import axios from "axios";
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import React, { useState } from "react";
 
-const NewUser = () => {
+const EditUserForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [admin, setAdmin] = useState("false");
   const router = useRouter();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     console.log("submitted");
-
-    const data = { name, admin, email, password };
-
-    axios
-      .post("http://localhost:5000/api/v1/users/create", data)
-      .then(() => {
-        console.log("submitted");
-        router.push("/dashboard/users");
-      })
-      .catch((err) => console.log(err));
   };
-
   return (
     <div className="m-4">
       <form
         onSubmit={handleSubmit}
         className="max-w-md mx-auto p-4 bg-white rounded shadow"
       >
-        <h2 className="text-lg font-semibold mb-4">New User</h2>
+        <h2 className="text-lg font-semibold mb-4">Edit User</h2>
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">
             Name
@@ -96,4 +83,4 @@ const NewUser = () => {
   );
 };
 
-export default NewUser;
+export default EditUserForm;
